@@ -98,12 +98,10 @@ def edit(request, id):
         if ("update" in request.POST):
             form = EditProgramForm(request.POST, request.FILES)
             if (form.is_valid()):
-                Program.objects.all().filter(id=id).delete()
-                description = form.cleaned_data["description"]
-                category = form.cleaned_data["category"]
-                upload = form.cleaned_data["upload"]
-                user = User.objects.get(id=request.user.id)
-                newupload = Program(user = user, description=description, category=category, is_public=False, upload=upload).save()
+                program = form.save(commit=False)
+                program.user = request.user
+                program.id = id
+                program.save()
                 return redirect("/programs/")
             else:
                 context = {
