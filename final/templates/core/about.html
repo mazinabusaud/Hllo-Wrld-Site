@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <title>Program</title>
+    {% include "core/shared_links.html" %}
+</head>
+
+<body style="background-color:#112432;">
+  {% include "core/navbar.html" %}
+<br>
+  <section class="introSection" style="background-color:#5c889b;">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="container-fluid" align="center" style ='padding-top:5px;'>
+        <img src= "{% static "image/tommy.jpg" %}" alt="My Image" height="300px">
+
+        <div id="testimonial-carousel" class="carousel slide" data-ride="false" style="margin-top:15px;">
+          <div class="carousel-inner" style="color: white;">
+            <div class="carousel-item active container-fluid">
+              <h5 class="testimonial-text">Hi, I'm Tommy and I'm a senior at Chico State University studying Computer Information Systems.</h5>
+            </div>
+            <div class="carousel-item container-fluid">
+              <h5 class="testimonial-text">My hobbies include traveling, exploring new food eateries, playing drums, spending time with my family and dog Bonnie, and I love to discover new tech toys.</h5>
+            </div>
+            <div class="carousel-item container-fluid">
+              <h5 class="testimonial-text">I also started to self-teach how to make websites few years ago as a hobby and learning more from this course has really solidified my knowledge while gaining some new ones too. I really enjoy Front-end development now.</h5>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+<div class="col-md-1">
+  <div class="container-fluid">
+  </div>
+</div>
+
+    <div class="col-md-5">
+      <div class="container-fluid" align="center" style ='padding-top:5px;'>
+        <img class = "pic" src="{% static "image/mazin.jpg" %}" alt="Picture of Me " height="300px">
+        <div id="testimonial-carousel2" class="carousel slide" data-ride="false" style="margin-top:15px;">
+          <div class="carousel-inner" style="color: white;">
+            <div class="carousel-item active container-fluid">
+              <h5 class="testimonial-text">Hi I'm Mazin, I am currently a junior here at CSU Chico and am a computer science major.</h5>
+            </div>
+            <div class="carousel-item container-fluid">
+              <h5 class="testimonial-text">I have many hobbies such as collecting records, painting, drawing, playing video games, and coding. I also really love to fish.</h5>
+            </div>
+            <div class="carousel-item container-fluid">
+              <h5 class="testimonial-text">I am also a first generation college student so it is really important to me and my family that I do well. I enjoy almost all of my classes
+              that I have taken here so far and this one has become one of my favorites. I am excited to learn from this class.</h5>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#testimonial-carousel2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#testimonial-carousel2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+<br>
+  <section class="aboutSection" style="background-color:#5c889b;">
+    <div class="about">
+    <h2 class="progressTitle" style="text-align:center; color: white;">Progression of the project</h2>
+
+    <ol style="color: white;">
+        <li>To start with, I started with most of the project being based off of project 2.</li>
+        <li>I set out with wanting to create a site where users could upload there code files and allow them to be downloaded if set to public.</li>
+        <li>Once I had the base of project 2, I deleted what I didnt need such as anything correlated to budget and journal.</li>
+        <li>Once that was done, I set out to reformat the everything related to tasks to fit my needs for what I'll now call Programs.</li>
+        <li>The first step to getting the site working once the unneccesary material was gone, I adjusted my settings.py and models.py for accepting a fileField.</li>
+        <li>To do this, I needed to add a few lines at the bottom of settings.py and introduce fileField in my models and forms for programs with the directory set to media/documents.</li>
+        <li>I ended up creating two models pertaining to my programs: Program model and Program Category model which was used within the program model.</li>
+        <li>After the models were created, I then went on to adjust the views to allow for file upload.</li>
+        <li>I then ran the program and tested to ensure that the file upload was working as intended.</li>
+        <li>The next problem I tackled was deleting the files associated to the models.</li>
+        <li>After many hours, I found that the best solution for this was to use django-cleanup, which deletes files associated to models whenever their models are deleted.</li>
+        <li>Once the upload and delete were working correctly, I began to work on the download mechanism for files.</li>
+        <li>This was a simple solution but took me a while to figure out. I had to add a line to urls.py and then I just used row.upload.url and download attribute in an href to make the files downloadable.</li>
+        <li>After download was working properly, we then went on to adjust the edit page so that we can edit which files have been uploaded and their descriptions.</li>
+        <li>I still have yet to figure it out completely, but as of now the only way to edit an input is you can't change the file linked to the model.</li>
+        <li>That is a bug that I have been unable to fix unfortunately and decided to move on from for timesake.</li>
+        <li>Once the edit page was done, Tommy helped me out with styling the site and finishing the about page.</li>
+        <li>The styling made the site look a lot more uniform and dynamic, without being too overbearing.</li>
+        <li>After the site was completed, we then dockerized it and uploaded it to GCP.</li>
+    </ol>
+  </div>
+  </section>
+
+  <footer id="footer" style="text-align:center; color: white;">
+      <p>© Copyright 2020 Mazin & Tommy</p>
+</body>

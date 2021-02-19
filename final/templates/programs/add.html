@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Add New Program</title>
+  {% include "core/shared_links.html" %}
+</head>
+<body style="background-color:#112432;">
+  {% include "core/navbar.html" %}
+  <div class="jumbotron" style="background-color:	#5c889b;; padding: 5%;">
+    <h1 style="color:white;">Add New Program</h1>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <table style="color:white;">
+        {{ form_data.as_table }}
+      </table>
+      <br>
+      <a href="/programs/" style="border-color: black;" class="btn btn-secondary">Cancel</a>
+      <input type="submit" style="border-color: black;" class="btn btn-primary" name="add" value = "Add Program">
+    </form>
+  </div>
+</body>
+</html>

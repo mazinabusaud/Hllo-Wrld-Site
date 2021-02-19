@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Programs</title>
+  {% include "core/shared_links.html" %}
+</head>
+<body style="background-color:#112432;">
+  {% include "core/navbar.html" %}
+<div class="jumbotron" style="background-color:	#5c889b;; padding: 5%;">
+  <h1 id="fadeAnimation" style="text-align:center; color: white;">Your Programs </h1>
+
+  {% if not table_data %}
+  </p>There are no programs.</p>
+  {% else %}
+  <table class="table table-striped table-dark table-hover" border="1" style="width:100%;" align='center'>
+    <tr style="text-align: center;">
+      <th>File</th>
+      <th>Date Uploaded</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Public</th>
+      <th>Action</th>
+    </tr>
+    {% for row in table_data %}
+    <tr style="text-align: center;">
+      <td>{{ row.upload.name }}</td>
+      <td>{{ row.date }}</td>
+      <td>{{ row.description }}</td>
+      <td>{{ row.category }}</td>
+      <td>
+        <a href="?toggle_public={{row.id}}">
+          {% if row.is_public %}Yes{% else %}No{% endif %}
+        </a>
+      </td>
+      <td>
+        <a class="btn btn-warning" href="/programs/edit/{{ row.id }}/">Edit</a>
+        <a class="btn btn-danger" href="#" onclick="confirmDeleteModal({{ row.id }})">Delete</a>
+        {% if row.upload %}
+        <a class='btn btn-primary' href="{{ row.upload.url }}" download> Download</a>
+        {% endif %}
+      </tr>
+      {% endfor %}
+      {% endif %}
+    </table>
+    <form method="GET" action="/programs/add/" >
+      <input type="submit" id="fadeAnimation" style="border-color: black;" class="btn btn-primary" value = "Add Program">
+    </form>
+  </div>
+
+
+  <!-- Modal -->
+  <div id="deleteModal" class="modal fade" role='dialog'>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">Delete Program</h4>
+        </div>
+        <div class="modal-body">
+          <p>Do you really want to delete this program?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <span id= 'deleteButton'></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Modal ends here--->
+
+</body>
+</html>

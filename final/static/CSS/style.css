@@ -1,0 +1,23 @@
+/* Placeholder for common css selectors */
+
+body {
+  padding: 20px;
+}
+
+textarea{
+  font-family: 'Caveat', cursive;
+}
+
+.table, #fadeAnimation{
+  animation: fadeIn 4s;
+}
+
+@keyframes fadeIn {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+

@@ -1,0 +1,31 @@
+<div class="jumbotron" style="background-color:#5c889b; padding: 5%;">
+  <div align="center">
+    <h1 id="fadeAnimation" style="color: white;">Public Programs</h1>
+    {% if not table_data %}
+  </p>There are no programs.</p>
+  {% else %}
+  <table class="table table-striped table-dark table-hover" border="1" style="width:100%;">
+    <tr style="text-align: center;">
+      <th>Author</th>
+      <th>File</th>
+      <th>Date Uploaded</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Action</th>
+    </tr>
+    {% for row in table_data %}
+    <tr style="text-align: center;">
+      <td>{{row.user}}</td>
+      <td>{{ row.upload.name }}</td>
+      <td>{{ row.date }}</td>
+      <td>{{ row.description }}</td>
+      <td>{{ row.category }}</td>
+      <td>
+        <a class='btn btn-primary' href="{{ row.upload.url }}" download> Download</a>
+
+      </tr>
+      {% endfor %}
+      {% endif %}
+    </table>
+  </div>
+</div>

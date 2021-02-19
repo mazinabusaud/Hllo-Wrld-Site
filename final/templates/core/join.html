@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Join</title>
+  {% include "core/shared_links.html" %}
+</head>
+<body style="background-color:#5c889b;">
+  {% include "core/navbar.html" %}
+  <br>
+  <div class="container">
+    <div class = "jumbotron" style="background-color:	#112432; padding: 5%;">
+      <h1 style="color: white;">Join</h1>
+      <form method="POST">
+        <table style="color: white;">
+          {{ join_form.as_table }}
+          {% csrf_token %}
+        </table>
+        <input type="submit" class="btn btn-primary" value = "Join" />
+      </form>
+      <br>
+      <p style="color: white;">Already have an account? click <a href="/login">here</a>.</p>
+    </div>
+  </div>
+</body>
+</html>
